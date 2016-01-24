@@ -1,1 +1,2 @@
-gcloud compute instances delete --zone europe-west1-d electric-jenkins-1
+gcloud compute --quiet firewall-rules delete jenkins-web-port
+gcloud compute --quiet instances delete --zone europe-west1-d electric-jenkins-1
