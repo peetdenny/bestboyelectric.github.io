@@ -1,6 +1,6 @@
 # Create your own copy of this and modify all of the values to your requirements 
-instancename=electric-jenkins-1
-zone=europe-west1-d
+instancename=#### instance name ######
+zone=##### your choice of zone #####
 
 # LDAP Stuff. Obviously *don't* check this file in!!!!!
 export server=ldaps://
