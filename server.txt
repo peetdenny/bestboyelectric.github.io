@@ -1,0 +1,3 @@
+NAME               ZONE           MACHINE_TYPE  PREEMPTIBLE INTERNAL_IP EXTERNAL_IP  STATUS
+electric-jenkins-1 europe-west1-d n1-standard-1             10.240.0.2  104.155.0.54 RUNNING
+
