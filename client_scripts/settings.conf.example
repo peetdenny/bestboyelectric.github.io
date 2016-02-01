@@ -8,4 +8,6 @@ export userSearchBase='###My User Search Base###'
 export userSearch='uid={0}'
 export groupSearchBase='###My Group Search Base###'
 export managerDN='uid=###MyUserName###,ou=Users,o=###My Org Name###,dc=###My Domain###,dc=com'
+# manager user; this is used to log into Jenkins once security has been configured
+export managerUser=###MyUserName###
 export managerPassword='###My Manager Password###'
