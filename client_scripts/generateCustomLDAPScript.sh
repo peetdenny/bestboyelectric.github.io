@@ -19,3 +19,20 @@ echo "SecurityRealm ldap_realm = new LDAPSecurityRealm(server, rootDN, userSearc
 echo "Jenkins.instance.setSecurityRealm(ldap_realm)"
 echo "Jenkins.instance.setAuthorizationStrategy(new FullControlOnceLoggedInAuthorizationStrategy())"
 echo "Jenkins.instance.save()" 
+
+
+echo uc = Jenkins.instance.updateCenter
+echo plugin = uc.getPlugin("git")
+echo plugin.deploy()
+
+echo pm = Jenkins.instance.pluginManager
+
+echo def deployPlugin(plugin) {
+echo   plugin.getNeededDependencies().each { 
+echo     deployPlugin(it) 
+echo   }
+echo }
+
+echo deployPlugin(plugin)
+echo print uc.getJobs()
+echo Jenkins.instance.doSafeRestart(null)
