@@ -21,7 +21,11 @@ gcloud compute ssh $instancename --zone $zone --command "curl --data-urlencode '
 
 
 echo Executed script to connect Jenkins to LDAP
-echo ========= New Server IP Below =======
-gcloud compute instances describe --zone $zone  $instancename | grep natIP
+echo ===========================================
+echo
+echo
+echo 
 rm -Rf $tmpdir
+echo "Ok, that's all done, I've just tidied up around here. Have a nice day :) - BestBoyElectric.io"
+gcloud compute instances describe --zone $zone  $instancename | grep natIP | awk '{print "Your new Jenkins server is running at http://" $2 ":8080"}'
 
