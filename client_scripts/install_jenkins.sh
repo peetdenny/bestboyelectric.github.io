@@ -8,5 +8,4 @@ sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources
 sudo apt-get -qq update
 sudo apt-get -qq install jenkins
 
-#sudo sed -i -e 's/HTTP_PORT=8080/HTTP_PORT=80/g' /etc/default/jenkins
 
