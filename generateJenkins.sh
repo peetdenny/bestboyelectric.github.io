@@ -16,9 +16,14 @@ sleep 60
 echo configuring security
 gcloud compute ssh $instancename --zone $zone --command 'curl --data-urlencode "script@./configure_ldap.groovy" http://localhost:8080/scriptText'
 
+echo "generating keys"
+gcloud compute ssh $instancename --zone $zone --command "ssh-keygen -t rsa -N '' -C '$email' -f ~/id_rsa"
+
 echo "installing plugins (this will restart Jenkins)"
 gcloud compute ssh $instancename --zone $zone --command "curl --data-urlencode 'script@./configurePlugins.groovy' -u${managerUser}:${managerPassword} http://localhost:8080/scriptText"
 
+#Copy public key back over
+gcloud compute copy-files $instancename:~/id_rsa.pub ../id_rsa.pub  --zone $zone
 
 echo Executed script to connect Jenkins to LDAP
 echo ===========================================
@@ -28,4 +33,4 @@ echo
 rm -Rf $tmpdir
 echo "Ok, that's all done, I've just tidied up around here. Have a nice day :) - BestBoyElectric.io"
 gcloud compute instances describe --zone $zone  $instancename | grep natIP | awk '{print "Your new Jenkins server is running at http://" $2 ":8080"}'
-
+echo "To connect your Jenkins instance to your Github, add the key in id_rsa.pub to your GitHub project"

@@ -1,7 +1,8 @@
 # Create your own copy of this and modify all of the values to your requirements 
-instancename=#### instance name ######
-zone=##### your choice of zone #####
-
+tmpdir=$PWD/tmp
+export instancename=#### instance name ######
+export zone=##### your choice of zone #####
+export email="<Your email address here>"  #This is for the key generation
 # LDAP Stuff. Obviously *don't* check this file in!!!!!
 export server=ldaps://
 export userSearchBase='###My User Search Base###'
@@ -11,3 +12,4 @@ export managerDN='uid=###MyUserName###,ou=Users,o=###My Org Name###,dc=###My Dom
 # manager user; this is used to log into Jenkins once security has been configured
 export managerUser=###MyUserName###
 export managerPassword='###My Manager Password###'
+
