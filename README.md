@@ -20,6 +20,8 @@ Then you have a few options
 
 I wrote a short (3 min read) article on [Medium](https://medium.com/@PeetDenny/automated-provisioning-of-jenkins-on-google-cloud-c297b2e0be2) if you want to know more
 
+## Other features
+* The cloud server will now generate an ssh keypair for Jenkins to use (typically to connect to your source repository). The public key is copied into the project root directory of your local machine so that you can install it on github as a deploy key.
 
 Got any questions? Give me a ping!
 
