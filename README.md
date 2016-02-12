@@ -18,6 +18,8 @@ Then you have a few options
 * Leave security off (not recommended :) ) (Run the same script as above)
 * Set up a free directory as a service LDAP at https://jumpcloud.com/. (recommended)
 
+I wrote a short (3 min read) article on [Medium](https://medium.com/@PeetDenny/automated-provisioning-of-jenkins-on-google-cloud-c297b2e0be2) if you want to know more
+
 
 Got any questions? Give me a ping!
 
