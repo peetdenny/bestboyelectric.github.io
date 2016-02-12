@@ -16,8 +16,8 @@ sleep 60
 echo configuring security
 gcloud compute ssh $instancename --zone $zone --command 'curl --data-urlencode "script@./configure_ldap.groovy" http://localhost:8080/scriptText'
 
-echo "generating keys"
-gcloud compute ssh $instancename --zone $zone --command "ssh-keygen -t rsa -N '' -C '$email' -f ~/id_rsa"
+echo "generating keys and configuring SSH for git clone"
+gcloud compute ssh $instancename --zone $zone --command "sudo runuser -l jenkins -c 'ssh-keygen -t rsa -N "password" -C "$email" -f "~/.ssh/id_rsa"';sudo cp /var/lib/jenkins/.ssh/id_rsa.pub ~ "
 
 echo "installing plugins (this will restart Jenkins)"
 gcloud compute ssh $instancename --zone $zone --command "curl --data-urlencode 'script@./configurePlugins.groovy' -u${managerUser}:${managerPassword} http://localhost:8080/scriptText"
